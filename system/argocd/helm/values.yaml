@@ -291,7 +291,7 @@ configs:
     policy.csv: |
       # Everything unrelated to a specific project is listed here.
 
-      # These permissions allow Operators from 
+      # These permissions allow Operators from
       # the ClubCedille/SRE group to:
 
       # - get clusters, certificates and repositories;
