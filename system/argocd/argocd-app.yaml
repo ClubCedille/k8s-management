@@ -17,7 +17,7 @@ spec:
     helm:
       releaseName: argocd
       valueFiles:
-      - $values/system/argocd/argocd-values.yaml
+      - $values/system/argocd/values.yaml
     repoURL: https://argoproj.github.io/argo-helm
     targetRevision: 7.7.0
   - repoURL: 'https://github.com/ClubCedille/k8s-management.git'
