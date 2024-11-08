@@ -183,17 +183,17 @@ configs:
     timeout.hard.reconciliation: 0s
 
     # Dex configuration
-    dex.config: |
-      connectors:
-        # GitHub example
-        - type: github
-          id: github
-          name: GitHub
-          config:
-            clientID: e9dfb0b51bcceae7aef8
-            clientSecret: $dex-secret:dex.github.clientSecret
-            orgs:
-            - name: ClubCedille
+    # dex.config: |
+    #   connectors:
+    #     # GitHub example
+    #     - type: github
+    #       id: github
+    #       name: GitHub
+    #       config:
+    #         clientID: e9dfb0b51bcceae7aef8
+    #         clientSecret: $dex-secret:dex.github.clientSecret
+    #         orgs:
+    #         - name: ClubCedille
 
     resource.customizations: |
       networking.k8s.io/Ingress:
@@ -255,7 +255,7 @@ configs:
     # -- Directory path that contains additional static assets
     server.staticassets: /shared/app
     # -- Disable Argo CD RBAC for user authentication
-    server.disable.auth: false
+    server.disable.auth: true # set to false once auth github configured
     # -- Enable GZIP compression
     server.enable.gzip: true
     # -- Set X-Frame-Options header in HTTP responses to value. To disable, set to "".
