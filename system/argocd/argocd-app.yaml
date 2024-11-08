@@ -13,19 +13,19 @@ spec:
     server: https://kubernetes.default.svc
   project: management
   sources:
-    - chart: argo-cd
-      helm:
-        releaseName: argocd
-        valueFiles:
-        - $values/system/argocd/argocd-values.yaml
-      repoURL: https://argoproj.github.io/argo-helm
-      targetRevision: 7.7.0
-    - repoURL: 'https://github.com/ClubCedille/k8s-management.git'
-      targetRevision: main
-      ref: values
-    - repoURL: 'https://github.com/ClubCedille/k8s-management.git'
-      path: system/argocd/resources
-      targetRevision: HEAD
+  - chart: argo-cd
+    helm:
+      releaseName: argocd
+      valueFiles:
+      - $values/system/argocd/argocd-values.yaml
+    repoURL: https://argoproj.github.io/argo-helm
+    targetRevision: 7.7.0
+  - repoURL: 'https://github.com/ClubCedille/k8s-management.git'
+    targetRevision: main
+    ref: values
+  - repoURL: 'https://github.com/ClubCedille/k8s-management.git'
+    path: system/argocd/resources
+    targetRevision: HEAD
   syncPolicy:
     automated:
       selfHeal: true
