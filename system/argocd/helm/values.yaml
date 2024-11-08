@@ -13,7 +13,7 @@ kubeVersionOverride: ""
 # you can set api versions here
 apiVersionOverrides:
   # -- String to override apiVersion of GKE resources rendered by this helm chart
-  cloudgoogle: "" # cloud.google.com/v1
+  cloudgoogle: ""  # cloud.google.com/v1
 
 # -- Create aggregated roles that extend existing cluster roles to interact with argo-cd resources
 ## Ref: https://kubernetes.io/docs/reference/access-authn-authz/rbac/#aggregated-clusterroles
@@ -290,10 +290,10 @@ configs:
     # @default -- `''` (See [values.yaml])
     policy.csv: |
       # Everything unrelated to a specific project is listed here.
-      
+
       # These permissions allow Operators from 
       # the ClubCedille/SRE group to:
-      
+
       # - get clusters, certificates and repositories;
       # - sync applications;
       # - read, create, update and delete GPG keys.
@@ -827,7 +827,7 @@ controller:
       # -- Prometheus ServiceMonitor tlsConfig
       tlsConfig: {}
       # -- Prometheus ServiceMonitor namespace
-      namespace: "" # "monitoring"
+      namespace: ""  # "monitoring"
       # -- Prometheus ServiceMonitor labels
       additionalLabels: {}
       # -- Prometheus ServiceMonitor annotations
@@ -836,7 +836,7 @@ controller:
       # -- Deploy a PrometheusRule for the application controller
       enabled: false
       # -- PrometheusRule namespace
-      namespace: "" # "monitoring"
+      namespace: ""  # "monitoring"
       # -- PrometheusRule selector
       selector: {}
         # prometheus: kube-prometheus
@@ -919,7 +919,7 @@ dex:
       # -- Prometheus ServiceMonitor tlsConfig
       tlsConfig: {}
       # -- Prometheus ServiceMonitor namespace
-      namespace: "" # "monitoring"
+      namespace: ""  # "monitoring"
       # -- Prometheus ServiceMonitor labels
       additionalLabels: {}
       # -- Prometheus ServiceMonitor annotations
@@ -1385,7 +1385,7 @@ redis:
       # -- Prometheus ServiceMonitor tlsConfig
       tlsConfig: {}
       # -- Prometheus ServiceMonitor namespace
-      namespace: "" # "monitoring"
+      namespace: ""  # "monitoring"
       # -- Prometheus ServiceMonitor labels
       additionalLabels: {}
       # -- Prometheus ServiceMonitor annotations
@@ -1549,13 +1549,13 @@ server:
   image:
     # -- Repository to use for the Argo CD server
     # @default -- `""` (defaults to global.image.repository)
-    repository: "" # defaults to global.image.repository
+    repository: ""  # defaults to global.image.repository
     # -- Tag to use for the Argo CD server
     # @default -- `""` (defaults to global.image.tag)
-    tag: "" # defaults to global.image.tag
+    tag: ""  # defaults to global.image.tag
     # -- Image pull policy for the Argo CD server
     # @default -- `""` (defaults to global.image.imagePullPolicy)
-    imagePullPolicy: "" # IfNotPresent
+    imagePullPolicy: ""  # IfNotPresent
 
   # -- Secrets with credentials to pull images from a private registry
   # @default -- `[]` (defaults to global.imagePullSecrets)
@@ -1932,7 +1932,7 @@ server:
 
     # -- List of ingress paths
     paths:
-      - /
+    - /
     # -- Ingress path type. One of `Exact`, `Prefix` or `ImplementationSpecific`
     pathType: Prefix
     # -- Additional ingress paths
@@ -1990,7 +1990,7 @@ server:
 
     # -- List of ingress paths for dedicated [gRPC-ingress]
     paths:
-      - /
+    - /
     # -- Ingress path type for dedicated [gRPC-ingress]. One of `Exact`, `Prefix` or `ImplementationSpecific`
     pathType: Prefix
     # -- Additional ingress paths for dedicated [gRPC-ingress]
@@ -2158,15 +2158,15 @@ repoServer:
       runAsNonRoot: true
       runAsUser: 999
     volumeMounts:
-        # Import the repo-server's plugin binary
-      - mountPath: /var/run/argocd
-        name: var-files
-      - mountPath: /home/argocd/cmp-server/plugins
-        name: plugins
-        # Starting with v2.4, do NOT mount the same tmp volume as the repo-server container. The filesystem separation helps
-        # mitigate path traversal attacks.
-      - mountPath: /tmp
-        name: lovely-tmp
+      # Import the repo-server's plugin binary
+    - mountPath: /var/run/argocd
+      name: var-files
+    - mountPath: /home/argocd/cmp-server/plugins
+      name: plugins
+      # Starting with v2.4, do NOT mount the same tmp volume as the repo-server container. The filesystem separation helps
+      # mitigate path traversal attacks.
+    - mountPath: /tmp
+      name: lovely-tmp
     # - name: cmp-my-plugin
     #   command:
     #     - "/var/run/argocd/argocd-cmp-server"
@@ -2393,7 +2393,7 @@ repoServer:
       # -- Prometheus ServiceMonitor tlsConfig
       tlsConfig: {}
       # -- Prometheus ServiceMonitor namespace
-      namespace: "" # "monitoring"
+      namespace: ""  # "monitoring"
       # -- Prometheus ServiceMonitor labels
       additionalLabels: {}
       # -- Prometheus ServiceMonitor annotations
@@ -2414,7 +2414,7 @@ repoServer:
     # -- Create repo server service account
     create: true
     # -- Repo server service account name
-    name: "" # "argocd-repo-server"
+    name: ""
     # -- Annotations applied to created service account
     annotations: {}
     # -- Labels applied to created service account
@@ -2708,7 +2708,7 @@ applicationSet:
 
       # -- List of ingress paths
       paths:
-        - /api/webhook
+      - /api/webhook
       # -- Ingress path type. One of `Exact`, `Prefix` or `ImplementationSpecific`
       pathType: Prefix
       # -- Additional ingress paths
