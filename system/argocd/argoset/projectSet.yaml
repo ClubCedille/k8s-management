@@ -8,10 +8,10 @@ metadata:
 spec:
   description: ''
   sourceRepos:
-  - '*'
+    - '*'
   destinations:
-  - namespace: ''
-    server: https://kubernetes.default.svc
+    - namespace: ''
+      server: https://kubernetes.default.svc
   # Deny all cluster-scoped resources from being created, except for Namespace
   # clusterResourceWhitelist:
   # - group: ''
