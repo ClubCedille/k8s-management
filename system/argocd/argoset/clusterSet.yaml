@@ -28,7 +28,7 @@ spec:
           spec:
             project: '{{.name}}'
         - patch: |-
-        apiVersion: argoproj.io/v1alpha1
-        kind: AppProject
-        metadata:
-          name: '{{.name}}'
+          apiVersion: argoproj.io/v1alpha1
+          kind: AppProject
+          metadata:
+            name: '{{.name}}'
