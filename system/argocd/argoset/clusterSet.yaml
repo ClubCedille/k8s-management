@@ -29,6 +29,13 @@ spec:
             kind: AppProject
             metadata:
               name: '{{.name}}'
+            spec:
+              description: ''
+              sourceRepos:
+                - '*'
+              destinations:
+                - namespace: '*'
+                  server: '{{.server}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: management

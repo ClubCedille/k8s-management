@@ -10,8 +10,8 @@ spec:
   sourceRepos:
     - '*'
   destinations:
-    - namespace: ''
-      server: https://kubernetes.default.svc
+    - namespace: '*'
+      server: 'https://kubernetes.default.svc'
   # allow all
   clusterResourceWhitelist:
     - group: '*'
