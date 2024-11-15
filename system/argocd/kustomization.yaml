@@ -5,3 +5,14 @@ resources:
   - argocd-app.yaml
   - argoset/clusterSet.yaml
   - argoset/projectSet.yaml
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /metadata/name
+        value: '{{.name}}'
+      - op: replace
+        path: /spec/destinations/0/server
+        value: '{{.server}}'
+    target:
+      kind: AppProject

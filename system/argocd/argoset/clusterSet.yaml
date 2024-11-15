@@ -17,17 +17,6 @@ spec:
         repoURL: https://github.com/ClubCedille/k8s-management/
         targetRevision: HEAD
         path: system/argocd/argoset
-        kustomize:
-          patches:
-            - patch: |-
-                - op: replace
-                  path: /metadata/name
-                  value: '{{.name}}'
-                - op: replace
-                  path: /spec/destinations/0/server
-                  value: '{{.server}}'
-              target:
-                kind: AppProject
       destination:
         server: https://kubernetes.default.svc
         namespace: management
