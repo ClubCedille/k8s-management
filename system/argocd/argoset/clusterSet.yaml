@@ -23,14 +23,14 @@ spec:
                 - op: replace
                   path: /metadata/name
                   value: '{{.name}}'
-                target:
-                  kind: AppProject
+              target:
+                kind: AppProject
             - patch: |-
                 - op: replace
                   path: /spec/destinations/0/server
                   value: '{{.server}}'
-                target:
-                  kind: AppProject
+              target:
+                kind: AppProject
       destination:
         server: https://kubernetes.default.svc
         namespace: management
