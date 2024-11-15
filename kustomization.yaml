@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
 - system/argocd/
-- https://github.com/ClubCedille/k8s-base/common/
+- https://github.com/ClubCedille/k8s-base/common.yaml
 
   # This patch sets common settings for Applications.
 patches:
