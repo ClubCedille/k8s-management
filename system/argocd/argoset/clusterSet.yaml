@@ -19,23 +19,18 @@ spec:
         path: system/argocd/argoset
         kustomize:
           patches:
-          - patch: |-
-            apiVersion: argoproj.io/v1alpha1
-            kind: Application
-            spec:
-              project: '{{.name}}'
-          - patch: |-
-            apiVersion: argoproj.io/v1alpha1
-            kind: AppProject
-            metadata:
-              name: '{{.name}}'
-            spec:
-              description: ''
-              sourceRepos:
-                - '*'
-              destinations:
-                - namespace: '*'
-                  server: '{{.server}}'
+            - patch: |-
+              apiVersion: argoproj.io/v1alpha1
+              kind: AppProject
+              metadata:
+                name: '{{.name}}'
+              spec:
+                description: ''
+                sourceRepos:
+                  - '*'
+                destinations:
+                  - namespace: '*'
+                    server: '{{.server}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: management
