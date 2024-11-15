@@ -17,18 +17,18 @@ spec:
         repoURL: https://github.com/ClubCedille/k8s-management/
         targetRevision: HEAD
         path: argocd/appset
+        kustomize:
+          patches:
+          - patch: |-
+            apiVersion: argoproj.io/v1alpha1
+            kind: Application
+            spec:
+              project: '{{.name}}'
+          - patch: |-
+            apiVersion: argoproj.io/v1alpha1
+            kind: AppProject
+            metadata:
+              name: '{{.name}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: management
-      kustomize:
-        patches:
-        - patch: |-
-          apiVersion: argoproj.io/v1alpha1
-          kind: Application
-          spec:
-            project: '{{.name}}'
-        - patch: |-
-          apiVersion: argoproj.io/v1alpha1
-          kind: AppProject
-          metadata:
-            name: '{{.name}}'
