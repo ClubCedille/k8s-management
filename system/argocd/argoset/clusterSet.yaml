@@ -16,7 +16,7 @@ spec:
       source:
         repoURL: https://github.com/ClubCedille/k8s-management/
         targetRevision: HEAD
-        path: system/argocd/argoset
+        path: .
       destination:
         server: https://kubernetes.default.svc
         namespace: management
