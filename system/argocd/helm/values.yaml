@@ -42,7 +42,7 @@ crds:
 global:
   # -- Default domain used by all components
   ## Used for ingresses, certificates, SSO, notifications, etc.
-  domain: argocd.example.com
+  domain: argocd.mgmt.cedille.club
 
   # -- Runtime class name for all components
   runtimeClassName: ""
@@ -1759,7 +1759,7 @@ server:
     # -- Enable Horizontal Pod Autoscaler ([HPA]) for the Argo CD server
     enabled: false
     # -- Minimum number of replicas for the Argo CD server [HPA]
-    minReplicas: 2
+    minReplicas: 1
     # -- Maximum number of replicas for the Argo CD server [HPA]
     maxReplicas: 5
     # -- Average CPU utilization percentage for the Argo CD server [HPA]
@@ -2428,7 +2428,7 @@ repoServer:
     # -- Enable Horizontal Pod Autoscaler ([HPA]) for the repo server
     enabled: false
     # -- Minimum number of replicas for the repo server [HPA]
-    minReplicas: 2
+    minReplicas: 1
     # -- Maximum number of replicas for the repo server [HPA]
     maxReplicas: 5
     # -- Average CPU utilization percentage for the repo server [HPA]
