@@ -16,7 +16,7 @@ spec:
       source:
         repoURL: https://github.com/ClubCedille/k8s-management/
         targetRevision: HEAD
-        path: argocd/argoset
+        path: system/argocd/argoset
         kustomize:
           patches:
           - patch: |-
