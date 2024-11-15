@@ -20,17 +20,17 @@ spec:
         kustomize:
           patches:
             - patch: |-
-              apiVersion: argoproj.io/v1alpha1
-              kind: AppProject
-              metadata:
-                name: '{{.name}}'
-              spec:
-                description: ''
-                sourceRepos:
-                  - '*'
-                destinations:
-                  - namespace: '*'
-                    server: '{{.server}}'
+                - op: replace
+                  path: /metadata/name
+                  value: '{{.name}}'
+                target:
+                  kind: AppProject
+            - patch: |-
+                - op: replace
+                  path: /spec/destinations/0/server
+                  value: '{{.server}}'
+                target:
+                  kind: AppProject
       destination:
         server: https://kubernetes.default.svc
         namespace: management
