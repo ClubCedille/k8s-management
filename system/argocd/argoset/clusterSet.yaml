@@ -14,12 +14,12 @@ spec:
     spec:
       project: "management"
       source:
-        repoURL: https://github.com/ClubCedille/k8s-management/
+        repoURL: https://github.com/ClubCedille/k8s-base/
         targetRevision: HEAD
         path: .
       destination:
         server: https://kubernetes.default.svc
-        namespace: management
+        # namespace: management
       syncPolicy:
         automated:
           selfHeal: true
