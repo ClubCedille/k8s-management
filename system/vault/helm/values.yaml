@@ -1,0 +1,9 @@
+server:
+  extraEnvironmentVars:
+    VAULT_STORAGE_TYPE: "s3"
+    VAULT_STORAGE_S3_BUCKET: "vault.cedille.bucket"
+    VAULT_STORAGE_S3_REGION: "us-east-2"
+    VAULT_STORAGE_S3_ACCESS_KEY: "ASIA6JKEXYM3M6NQ4PSV"
+    VAULT_STORAGE_S3_SECRET_KEY: "Q3Dwr2/pWtnxV5lLaxg0+I0FUnslJGV0UVXSvsGY"
+ha:
+  enabled: false
