@@ -3,19 +3,3 @@ kind: Kustomization
 
 resources:
 - system/argocd/
-
-  # This patch sets common settings for Applications.
-patches:
-- patch: |-
-    apiVersion: argoproj.io/v1alpha1
-    kind: Application
-    metadata:
-      name: not-used
-      finalizers:
-      - resources-finalizer.argocd.argoproj.io
-    spec:
-      syncPolicy:
-        automated:
-          selfHeal: true
-  target:
-    kind: Application
