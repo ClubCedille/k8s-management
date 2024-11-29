@@ -21,4 +21,4 @@ spec:
   tls:
   - hosts:
     - argocd.mgmt.cedille.club
-    secretName: argocd-secret
+    secretName: argocd-tls
