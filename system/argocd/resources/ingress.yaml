@@ -16,5 +16,5 @@ spec:
         - prefix: /
       services:
         - name: argocd-server
-          port: 443
+          port: 80
       enableWebsockets: true
