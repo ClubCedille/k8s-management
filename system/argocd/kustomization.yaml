@@ -1,18 +1,34 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+namespace: argocd
+
 resources:
   - argocd-app.yaml
   - argoset/clusterSet.yaml
   - argoset/projectSet.yaml
 
-patches:
-  - patch: |-
-      - op: replace
-        path: /metadata/name
-        value: '{{.name}}'
-      - op: replace
-        path: /spec/destinations/0/server
-        value: '{{.server}}'
-    target:
-      kind: AppProject
+secretGenerator:
+  - name: cluster-kubernetes.default.svc
+    options:
+      labels:
+        argocd.argoproj.io/secret-type: cluster
+        etsmtl.club/external-network: "true"
+      annotations:
+        etsmtl.club/external-ip: 142.137.247.86
+    literals:
+      - server=https://kubernetes.default.svc
+      - name=k8s-management
+      - namespace=*
+
+
+# patches:
+#   - patch: |-
+#       - op: replace
+#         path: /metadata/name
+#         value: '{{.name}}'
+#       - op: replace
+#         path: /spec/destinations/0/server
+#         value: '{{.server}}'
+#     target:
+#       kind: AppProject

@@ -12,7 +12,7 @@ spec:
     metadata:
       name: '{{.name}}'
     spec:
-      project: "management"
+      project: "k8s-management"
       source:
         repoURL: https://github.com/ClubCedille/k8s-base/
         targetRevision: HEAD
