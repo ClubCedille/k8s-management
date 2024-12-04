@@ -209,6 +209,21 @@ configs:
     #         clientSecret: $dex.github.clientSecret # Alternatively $<some_K8S_secret>:dex.github.clientSecret
     #         orgs:
     #         - name: your-github-org
+    # url: https://argocd.mgmt.cedille.club
+    # dex.config: |
+    #     connectors:
+    #     - config:
+    #         issuer: https://authentik.mgmt.cedille.club/application/o/<application slug defined in step 2>/
+    #         clientID: <client ID from the Provider above>
+    #         clientSecret: $dex-secret:dex.authentik.clientSecret
+    #         insecureEnableGroups: true
+    #         scopes:
+    #           - openid
+    #           - profile
+    #           - email
+    #       name: authentik
+    #       type: oidc
+    #       id: authentik
 
     # OIDC configuration as an alternative to dex (optional).
     # oidc.config: |
@@ -274,7 +289,7 @@ configs:
     ## Server properties
     # -- Run server without TLS
     ## NOTE: This value should be set when you generate params by other means as it changes ports used by ingress template.
-    server.insecure: false
+    server.insecure: true
     # -- Value for base href in index.html. Used if Argo CD is running behind reverse proxy under subpath different from /
     server.basehref: /
     # -- Used if Argo CD is running behind reverse proxy under subpath different from /
