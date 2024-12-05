@@ -6,6 +6,7 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
     ingress.kubernetes.io/force-ssl-redirect: "true"
+
 spec:
   ingressClassName: contour
   rules:
@@ -20,7 +21,6 @@ spec:
             port:
               number: 8200
   tls:
-    - hosts:
-      - vault.staging.cedille.club
-      secretName: vault-secret
-
+  - hosts:
+    - vault.staging.cedille.club
+    secretName: vault-secret
