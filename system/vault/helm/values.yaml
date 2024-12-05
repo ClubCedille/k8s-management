@@ -649,12 +649,12 @@ server:
     #     port: 443
     ingress:
       - from:
-        - namespaceSelector: {}
+          - namespaceSelector: {}
         ports:
-        - port: 8200
-          protocol: TCP
-        - port: 8201
-          protocol: TCP
+          - port: 8200
+            protocol: TCP
+          - port: 8201
+            protocol: TCP
 
   # Priority class for server pods
   priorityClassName: ""
@@ -847,17 +847,17 @@ server:
         #  unauthenticated_metrics_access = "true"
         #}
       }
-      
+
       storage "file" {
         path = "/vault/data"
-      }      
+      }
       # storage "s3" {
       #   bucket     = "vault.cedille.bucket"
       #   access_key = "{{ .Values.s3.accessKey }}"
       #   secret_key = "{{ .Values.s3.secretKey }}"
       #   endpoint   = "<ceph-s3-endpoint>"
       #   secure     = true
-      #   v4         = true 
+      #   v4         = true
       # }
 
       # Example configuration for using auto-unseal, using Google Cloud KMS. The
@@ -1087,8 +1087,7 @@ ui:
 s3:
   secretName: vault-s3-credentials
   accessKey: access_key
-  secretKey: secret_key
-  
+  secretKey: secret_key  
 # secrets-store-csi-driver-provider-vault
 csi:
   # True if you want to install a secrets-store-csi-driver-provider-vault daemonset.
@@ -1329,31 +1328,31 @@ serverTelemetry:
     authorization: {}
 
   prometheusRules:
-      # The Prometheus operator *must* be installed before enabling this feature,
-      # if not the chart will fail to install due to missing CustomResourceDefinitions
-      # provided by the operator.
+    # The Prometheus operator *must* be installed before enabling this feature,
+    # if not the chart will fail to install due to missing CustomResourceDefinitions
+    # provided by the operator.
 
-      # Deploy the PrometheusRule custom resource for AlertManager based alerts.
-      # Requires that AlertManager is properly deployed.
-      enabled: false
-      # Selector labels to add to the PrometheusRules.
-      # When empty, defaults to:
-      #  release: prometheus
-      selectors: {}
+    # Deploy the PrometheusRule custom resource for AlertManager based alerts.
+    # Requires that AlertManager is properly deployed.
+    enabled: false
+    # Selector labels to add to the PrometheusRules.
+    # When empty, defaults to:
+    #  release: prometheus
+    selectors: {}
 
-      # Some example rules.
-      rules: []
-      #  - alert: vault-HighResponseTime
-      #    annotations:
-      #      message: The response time of Vault is over 500ms on average over the last 5 minutes.
-      #    expr: vault_core_handle_request{quantile="0.5", namespace="mynamespace"} > 500
-      #    for: 5m
-      #    labels:
-      #      severity: warning
-      #  - alert: vault-HighResponseTime
-      #    annotations:
-      #      message: The response time of Vault is over 1s on average over the last 5 minutes.
-      #    expr: vault_core_handle_request{quantile="0.5", namespace="mynamespace"} > 1000
-      #    for: 5m
-      #    labels:
-      #      severity: critical
+    # Some example rules.
+    rules: []
+    #  - alert: vault-HighResponseTime
+    #    annotations:
+    #      message: The response time of Vault is over 500ms on average over the last 5 minutes.
+    #    expr: vault_core_handle_request{quantile="0.5", namespace="mynamespace"} > 500
+    #    for: 5m
+    #    labels:
+    #      severity: warning
+    #  - alert: vault-HighResponseTime
+    #    annotations:
+    #      message: The response time of Vault is over 1s on average over the last 5 minutes.
+    #    expr: vault_core_handle_request{quantile="0.5", namespace="mynamespace"} > 1000
+    #    for: 5m
+    #    labels:
+    #      severity: critical
