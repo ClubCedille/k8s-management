@@ -739,17 +739,17 @@ server:
 
     # If type is set to "NodePort", a specific nodePort value can be configured,
     # will be random if left blank.
-    #nodePort: 30000
+    # nodePort: 30000
 
     # When HA mode is enabled
     # If type is set to "NodePort", a specific nodePort value can be configured,
     # will be random if left blank.
-    #activeNodePort: 30001
+    # activeNodePort: 30001
 
     # When HA mode is enabled
     # If type is set to "NodePort", a specific nodePort value can be configured,
     # will be random if left blank.
-    #standbyNodePort: 30002
+    # standbyNodePort: 30002
 
     # Port on which Vault server is listening
     port: 8200
@@ -847,11 +847,10 @@ server:
         #  unauthenticated_metrics_access = "true"
         #}
       }
-
+      
       storage "file" {
         path = "/vault/data"
-      }
-      
+      }      
       # storage "s3" {
       #   bucket     = "vault.cedille.bucket"
       #   access_key = "{{ .Values.s3.accessKey }}"
@@ -1073,7 +1072,7 @@ ui:
   # ref: https://kubernetes.io/docs/concepts/services-networking/service/#external-traffic-policy
   externalTrafficPolicy: Cluster
 
-  #loadBalancerSourceRanges:
+  # loadBalancerSourceRanges:
   #   - 10.0.0.0/16
   #   - 1.78.23.3/32
 
@@ -1089,7 +1088,6 @@ s3:
   secretName: vault-s3-credentials
   accessKey: access_key
   secretKey: secret_key
-
   
 # secrets-store-csi-driver-provider-vault
 csi:
@@ -1338,7 +1336,6 @@ serverTelemetry:
       # Deploy the PrometheusRule custom resource for AlertManager based alerts.
       # Requires that AlertManager is properly deployed.
       enabled: false
-
       # Selector labels to add to the PrometheusRules.
       # When empty, defaults to:
       #  release: prometheus
