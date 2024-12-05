@@ -1087,7 +1087,8 @@ ui:
 s3:
   secretName: vault-s3-credentials
   accessKey: access_key
-  secretKey: secret_key  
+  secretKey: secret_key
+
 # secrets-store-csi-driver-provider-vault
 csi:
   # True if you want to install a secrets-store-csi-driver-provider-vault daemonset.
