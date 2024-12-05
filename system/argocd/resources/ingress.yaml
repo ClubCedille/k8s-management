@@ -12,18 +12,13 @@ spec:
       secretName: argocd-tls
   routes:
   - conditions:
-    - prefix: /
     - header:
         contains: application/grpc
         name: Content-Type
-    enableWebsockets: true
     services:
     - name: argocd-server
       port: 80
       protocol: h2c
-  - conditions:
-    - prefix: /
-    enableWebsockets: true
-    services:
+  - services:
     - name: argocd-server
       port: 80
