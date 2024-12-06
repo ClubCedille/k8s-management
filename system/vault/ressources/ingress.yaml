@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: contour
   rules:
-  - host: vault.staging.cedille.club
+  - host: vault.mgmt.cedille.club
     http:
       paths:
       - path: /
