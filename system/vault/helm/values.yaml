@@ -1033,7 +1033,7 @@ server:
       container: {}
 
   # Should the server pods run on the host network
-  hostNetwork: false    
+  hostNetwork: false
 # Vault UI
 ui:
   # True if you want to create a Service entry for the Vault UI.

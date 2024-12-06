@@ -12,5 +12,5 @@ spec:
   dnsNames:
     - vault.mgmt.cedille.club
   # Optional: Set the duration and renewal time
-  duration: 2160h # 90 days
-  renewBefore: 360h # 15 days
+  duration: 2160h
+  renewBefore: 360h
