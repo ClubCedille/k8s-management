@@ -7,9 +7,9 @@ global:
   # enabled is the master enabled switch. Setting this to true or false
   # will enable or disable all the components within this chart by default.
   enabled: true
-
+  storageClass: cephfs
   # The namespace to deploy to. Defaults to the `helm` installation namespace.
-  namespace: ""
+  namespace: "vault"
 
   # Image pull secret to use for registry authentication.
   # Alternatively, the value may be specified as an array of strings.
@@ -420,7 +420,7 @@ server:
 
     # Optionally use ingressClassName instead of deprecated annotation.
     # See: https://kubernetes.io/docs/concepts/services-networking/ingress/#deprecated-annotation
-    ingressClassName: ""
+    ingressClassName: contour
 
     # As of Kubernetes 1.19, all Ingress Paths must have a pathType configured. The default value below should be sufficient in most cases.
     # See: https://kubernetes.io/docs/concepts/services-networking/ingress/#path-types for other possible values.
@@ -430,7 +430,7 @@ server:
     # configure the ingress to point to the Vault active service.
     activeService: true
     hosts:
-      - host: chart-example.local
+      - host: vault.mgmt.cedille.club
         paths: []
     ## Extra paths to prepend to the host configuration. This is useful when working with annotation based services.
     extraPaths: []
@@ -766,12 +766,12 @@ server:
   dataStorage:
     enabled: true
     # Size of the PVC created
-    size: 10Gi
+    size: 8Gi
     # Location where the PVC will be mounted.
     mountPath: "/vault/data"
     # Name of the storage class to use.  If null it will use the
     # configured default Storage Class.
-    storageClass: null
+    storageClass: cephfs
     # Access Mode of the storage device being used for the PVC
     accessMode: ReadWriteOnce
     # Annotations to apply to the PVC
@@ -793,14 +793,14 @@ server:
   # /vault/audit
   # See https://developer.hashicorp.com/vault/docs/audit to know more
   auditStorage:
-    enabled: false
+    enabled: true
     # Size of the PVC created
-    size: 10Gi
+    size: 4Gi
     # Location where the PVC will be mounted.
     mountPath: "/vault/audit"
     # Name of the storage class to use.  If null it will use the
     # configured default Storage Class.
-    storageClass: null
+    storageClass: cephfs
     # Access Mode of the storage device being used for the PVC
     accessMode: ReadWriteOnce
     # Annotations to apply to the PVC
@@ -1034,7 +1034,7 @@ server:
 
   # Should the server pods run on the host network
   hostNetwork: false
-
+    
 # Vault UI
 ui:
   # True if you want to create a Service entry for the Vault UI.
