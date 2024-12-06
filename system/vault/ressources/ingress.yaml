@@ -8,12 +8,17 @@ metadata:
 spec:
   virtualhost:
     fqdn: vault.mgmt.cedille.club
-    # tls:
-    #   secretName: vault-tls
+    tls:
+      secretName: vault-tls
   routes:
-    - conditions:
-        - prefix: /
-      services:
-        - name: vault
-          port: 8200
-      enableWebsockets: true
+  - conditions:
+    - header:
+        contains: application/grpc
+        name: Content-Type
+    services:
+    - name: vault-ui
+      port: 8200
+      protocol: h2c
+  - services:
+    - name: vault-ui
+      port: 8200
