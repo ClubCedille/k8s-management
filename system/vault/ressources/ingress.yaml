@@ -4,16 +4,16 @@ metadata:
   name: vault
   namespace: vault
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: letsencrypt-staging
 spec:
   virtualhost:
     fqdn: vault.mgmt.cedille.club
-    tls:
-      secretName: vault-tls
+    # tls:
+    #   secretName: vault-tls
   routes:
     - conditions:
         - prefix: /
       services:
-        - name: vault-ui
-          port: 80
+        - name: vault
+          port: 8200
       enableWebsockets: true
