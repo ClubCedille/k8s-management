@@ -11,16 +11,16 @@ spec:
     tls:
       secretName: authentik-tls
   routes:
-    - conditions:
-        - prefix: /websocket
-          enableWebsockets: true
-        - header:
-            contains: application/grpc
-            name: Content-Type
-      services:
-        - name: authentik-server
-          port: 9443
-          protocol: h2c
-        - services:
-            - name: authentik-server
-              port: 9443
+  - conditions:
+    - header:
+        contains: application/grpc
+        name: Content-Type
+    - prefix: /websocket
+    enableWebsockets: true
+    services:
+    - name: authentik-server
+      port: 80
+      protocol: h2c
+  - services:
+      - name: authentik-server
+        port: 80
