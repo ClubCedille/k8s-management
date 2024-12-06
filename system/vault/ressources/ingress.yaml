@@ -1,26 +1,19 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
 metadata:
-  name: vault-ingress
+  name: vault
   namespace: vault
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-staging
-    ingress.kubernetes.io/force-ssl-redirect: "true"
-
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
-  ingressClassName: contour
-  rules:
-  - host: vault.mgmt.cedille.club
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: vault
-            port:
-              number: 8200
-  tls:
-  - hosts:
-    - vault.staging.cedille.club
-    secretName: vault-secret
+  virtualhost:
+    fqdn: vault.mgmt.cedille.club
+    tls:
+      secretName: vault-tls
+  routes:
+    - conditions:
+        - prefix: /
+      services:
+        - name: vault-ui
+          port: 80
+      enableWebsockets: true
