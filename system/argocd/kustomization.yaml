@@ -4,9 +4,9 @@ kind: Kustomization
 namespace: argocd
 
 resources:
+  - resources/base.yaml
+  - resources/appproject.yaml
   - argocd-app.yaml
-  - argoset/clusterSet.yaml
-  - argoset/projectSet.yaml
 
 secretGenerator:
   - name: cluster-kubernetes.default.svc
