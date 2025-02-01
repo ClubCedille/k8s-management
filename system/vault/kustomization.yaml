@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: vault
+  namespace: vault
+resources:
+  - helm/values
+helmCharts:
+  - name: vault
+    version: "0.18.0"  # Specify the version of the Vault chart
+    repository: "https://helm.releases.hashicorp.com"  # Repository for the Vault chart
+    releaseName: "vault"  # Release name for your Helm deployment
+    namespace: vault  # Vault namespace
+    valuesFile: "helm/values.yaml"  # Reference to your `values.yaml` file

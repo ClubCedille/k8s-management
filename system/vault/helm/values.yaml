@@ -1,0 +1,37 @@
+global:
+  storageClass: cephfs
+  namespace: "vault"
+
+server:
+  dataStorage:
+    size: 8Gi
+    mountPath: "/vault/data"
+    storageClass: cephfs
+    accessMode: ReadWriteOnce
+
+  auditStorage:
+    size: 4Gi
+    mountPath: "/vault/audit"
+    storageClass: cephfs
+    accessMode: ReadWriteOnce
+
+standalone:
+  enabled: "-"
+  config: |
+    ui = true
+    listener "tcp" {
+      tls_disable = 1
+      address = "[::]:8200"
+      cluster_address = "[::]:8201"
+    }
+    storage "file" {
+      path = "/vault/data"
+    }
+
+ui:
+  enabled: true
+  publishNotReadyAddresses: true
+  activeVaultPodOnly: false
+  serviceType: "ClusterIP"
+  externalPort: 8200
+  targetPort: 8200
