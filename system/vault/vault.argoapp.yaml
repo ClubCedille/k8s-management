@@ -15,5 +15,8 @@ spec:
   syncPolicy:
     automated:
       selfHeal: true
+    managedNamespaceMetadata:
+      labels:
+        pod-security.kubernetes.io/enforce: privileged
     syncOptions:
     - CreateNamespace=true
