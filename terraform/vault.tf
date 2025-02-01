@@ -54,8 +54,8 @@ resource "kubernetes_secret" "kms_infos" {
   data = {
     "region" = var.gcloud_region
     "project" = var.gcloud_project
-    "keyring" = google_kms_key_ring.key_ring.id
-    "cryptokey" = google_kms_crypto_key.crypto_key.id
+    "keyring" = google_kms_key_ring.key_ring.name
+    "cryptokey" = google_kms_crypto_key.crypto_key.name
   }
 
   type = "kubernetes.io/generic"
