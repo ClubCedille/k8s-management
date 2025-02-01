@@ -6,7 +6,7 @@ metadata:
 resources:
   - resources/certificate.yaml
   - resources/httpproxy.yaml
-  - resources/vault-configs/vault-roles.yaml
+  - resources/vault-configs/roles.yaml
   - resources/vault-configs/policies.yaml
   - resources/vault-configs/secret-engine.yaml
 helmCharts:
