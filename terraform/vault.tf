@@ -35,7 +35,7 @@ resource "google_kms_key_ring_iam_binding" "vault_iam_kms_binding" {
 resource "kubernetes_secret" "kms_creds" {
   metadata {
     name = "kms-creds"
-    namespace = kubernetes_namespace.vault_ns.metadata[0].name
+    namespace = "vault"
   }
 
   data = {
@@ -48,7 +48,7 @@ resource "kubernetes_secret" "kms_creds" {
 resource "kubernetes_secret" "kms_infos" {
   metadata {
     name = "kms-infos"
-    namespace = kubernetes_namespace.vault_ns.metadata[0].name
+    namespace = "vault"
   }
 
   data = {
