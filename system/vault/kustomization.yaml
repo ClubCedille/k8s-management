@@ -18,3 +18,4 @@ helmCharts:
     releaseName: "vault-config-operator"
     namespace: vault 
     valuesFile: "helm/vault-config.values.yaml"
+    includeCRDs: true
