@@ -1,3 +1,4 @@
+enableMonitoring: false
 env:
   - name: VAULT_ADDR
     value: https://vault.mgmt.cedille.club
