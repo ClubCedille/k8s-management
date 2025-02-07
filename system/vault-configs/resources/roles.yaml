@@ -5,9 +5,9 @@ metadata:
 spec:
   # Add fields here
   authentication: 
-    path: kubernetes
+    path: k8s-management
     role: config-admin
-  path: kubernetes
+  path: k8s-management
   policies:
     - config-admin
   targetServiceAccounts:
@@ -22,9 +22,9 @@ metadata:
   name: secret-writer
 spec:
   authentication: 
-    path: kubernetes
+    path: k8s-management
     role: config-admin
-  path: kubernetes  
+  path: k8s-management  
   policies:
     - secret-writer
   targetServiceAccounts:
@@ -39,9 +39,9 @@ metadata:
   name: secret-reader
 spec:
   authentication: 
-    path: kubernetes
+    path: k8s-management
     role: config-admin
-  path: kubernetes  
+  path: k8s-management  
   policies:
     - secret-reader
   targetServiceAccounts:
