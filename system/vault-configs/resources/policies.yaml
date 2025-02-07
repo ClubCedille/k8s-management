@@ -4,7 +4,7 @@ metadata:
   name: secret-writer
 spec:
   authentication: 
-    path: kubernetes
+    path: k8s-management
     role: config-admin
   policy: |
     # create secrets
@@ -23,7 +23,7 @@ metadata:
   name: secret-reader
 spec:
   authentication: 
-    path: kubernetes
+    path: k8s-management
     role: config-admin
   policy: |
     path "kv/data/{{identity.entity.aliases.${auth/kubernetes/@accessor}.metadata.service_account_namespace}}/{{identity.entity.aliases.${auth/kubernetes/@accessor}.metadata.service_account_name}}/*" {
@@ -44,7 +44,7 @@ metadata:
   name: config-admin
 spec:
   authentication: 
-    path: kubernetes
+    path: k8s-management
     role: config-admin
   policy: |
     path "sys/*" {
