@@ -33,22 +33,22 @@ server:
     - type: secret
       name: kms-creds
 
-standalone:
-  enabled: true
-  config: |
-    ui = true
-    plugin_directory = "/vault/plugins"
-    log_requests_level = "debug"
-    log_level = "debug"
-    listener "tcp" {
-      tls_disable = 1
-      address = "[::]:8200"
-      cluster_address = "[::]:8201"
-    }
-    storage "file" {
-      path = "/vault/data"
-    }
-    service_registration "kubernetes" {}
+  standalone:
+    enabled: true
+    config: |
+      ui = true
+      plugin_directory = "/vault/plugins"
+      log_requests_level = "debug"
+      log_level = "debug"
+      listener "tcp" {
+        tls_disable = 1
+        address = "[::]:8200"
+        cluster_address = "[::]:8201"
+      }
+      storage "file" {
+        path = "/vault/data"
+      }
+      service_registration "kubernetes" {}
 
 ui:
   enabled: true
