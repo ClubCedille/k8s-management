@@ -48,7 +48,7 @@ server:
       storage "file" {
         path = "/vault/data"
       }
-      service_registration "kubernetes" {}
+      # service_registration "kubernetes" {}
 
 ui:
   enabled: true
