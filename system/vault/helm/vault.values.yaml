@@ -38,6 +38,8 @@ standalone:
   config: |
     ui = true
     plugin_directory = "/vault/plugins"
+    log_requests_level = "debug"
+    log_level = "debug"
     listener "tcp" {
       tls_disable = 1
       address = "[::]:8200"
