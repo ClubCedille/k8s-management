@@ -199,8 +199,20 @@ configs:
     statusbadge.enabled: false
 
     # Dex configuration
-    # dex.config: |
-    #   connectors:
+    dex.config: |
+      connectors:
+      - config:
+          issuer: https://authentik.mgmt.cedille.club/application/o/argocd
+          clientID: JDqmDzVCT0Em8fxmDskdhM3yPTqG1Y4jd9xYEn7N
+          clientSecret: $argocd-authentik-secret:dex.authentik.clientSecret
+          insecureEnableGroups: true
+          scopes:
+            - openid
+            - profile
+            - email
+          name: authentik
+          type: oidc
+          id: authentik
     #     # GitHub example
     #     - type: github
     #       id: github
@@ -596,11 +608,7 @@ configs:
     ## Custom secrets. Useful for injecting SSO secrets into environment variables.
     ## Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/#sensitive-data-and-sso-client-secrets
     ## Note that all values must be non-empty.
-    extra:
-      dex.authentik.clientSecret:
-        secretKeyRef:
-          name: argocd-authentik-secret
-          key: dex.authentik.clientSecret
+    extra: {}
 
       # LDAP_PASSWORD: "mypassword"
 
