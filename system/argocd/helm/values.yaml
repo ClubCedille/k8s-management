@@ -199,8 +199,20 @@ configs:
     statusbadge.enabled: false
 
     # Dex configuration
-    # dex.config: |
-    #   connectors:
+    dex.config: |
+      connectors:
+      - config:
+          issuer: https://authentik.mgmt.cedille.club/application/o/argocd
+          clientID: JDqmDzVCT0Em8fxmDskdhM3yPTqG1Y4jd9xYEn7N
+          clientSecret: $argocd-authentik-secret:dex.authentik.clientSecret
+          insecureEnableGroups: true
+          scopes:
+            - openid
+            - profile
+            - email
+          name: authentik
+          type: oidc
+          id: authentik
     #     # GitHub example
     #     - type: github
     #       id: github
@@ -349,7 +361,10 @@ configs:
 
     # -- File containing user-defined policies and role definitions.
     # @default -- `''` (See [values.yaml])
-    policy.csv: ''
+    policy.csv: |
+      g, authentik Admins, role:admin
+      g, authentik Read-only, role:readonly
+
     # Policy rules are in the form:
     #  p, subject, resource, action, object, effect
     # Role definitions and bindings are in the form:
@@ -593,8 +608,8 @@ configs:
     ## Custom secrets. Useful for injecting SSO secrets into environment variables.
     ## Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/#sensitive-data-and-sso-client-secrets
     ## Note that all values must be non-empty.
-    extra:
-      {}
+    extra: {}
+
       # LDAP_PASSWORD: "mypassword"
 
     # -- Bcrypt hashed admin password
@@ -1724,7 +1739,7 @@ redisSecretInit:
     allowPrivilegeEscalation: false
     capabilities:
       drop:
-        - ALL
+      - ALL
     readOnlyRootFilesystem: true
     runAsNonRoot: true
     seccompProfile:
