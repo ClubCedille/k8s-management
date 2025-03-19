@@ -200,19 +200,19 @@ configs:
 
     # Dex configuration ## edit secret kubectl edit secret argocd-authentik-secret -n argocd to add annotation app.kubernetes.io/part-of: argocd
     dex.config: |
-        connectors:
-          - config:
-              issuer: https://authentik.mgmt.cedille.club/application/o/argocd
-              clientID: JDqmDzVCT0Em8fxmDskdhM3yPTqG1Y4jd9xYEn7N
-              clientSecret: $argocd-authentik-secret:dex.authentik.clientSecret
-              insecureEnableGroups: true
-              scopes:
-                - openid
-                - profile
-                - email
-              name: authentik
-              type: oidc
-              id: authentik
+      connectors:
+        - config:
+            issuer: https://authentik.mgmt.cedille.club/application/o/argocd
+            clientID: JDqmDzVCT0Em8fxmDskdhM3yPTqG1Y4jd9xYEn7N
+            clientSecret: $argocd-authentik-secret:dex.authentik.clientSecret
+            insecureEnableGroups: true
+            scopes:
+              - openid
+              - profile
+              - email
+          name: authentik
+          type: oidc
+          id: authentik
     #     # GitHub example
         # - type: github
     #       id: github
