@@ -349,7 +349,10 @@ configs:
 
     # -- File containing user-defined policies and role definitions.
     # @default -- `''` (See [values.yaml])
-    policy.csv: ''
+    policy.csv: |
+      g, authentik Admins, role:admin
+      g, authentik Read-only, role:readonly
+
     # Policy rules are in the form:
     #  p, subject, resource, action, object, effect
     # Role definitions and bindings are in the form:
@@ -594,7 +597,11 @@ configs:
     ## Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/#sensitive-data-and-sso-client-secrets
     ## Note that all values must be non-empty.
     extra:
-      {}
+      dex.authentik.clientSecret:
+        secretKeyRef:
+          name: argocd-authentik-secret
+          key: dex.authentik.clientSecret
+
       # LDAP_PASSWORD: "mypassword"
 
     # -- Bcrypt hashed admin password
