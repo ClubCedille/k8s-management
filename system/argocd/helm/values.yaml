@@ -982,7 +982,11 @@ dex:
   name: dex-server
 
   # -- Additional command line arguments to pass to the Dex server
-  extraArgs: []
+  extraArgs: [
+    "--disable-tls",
+    "--dex-server-plaintext",
+    "--dex-server http://argocd-dex-server:5556"
+  ]
 
   # -- Runtime class name for Dex
   # @default -- `""` (defaults to global.runtimeClassName)
