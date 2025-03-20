@@ -984,7 +984,6 @@ dex:
   # -- Additional command line arguments to pass to the Dex server
   extraArgs: [
     "--disable-tls",
-    "--dex-server-plaintext",
     "--dex-server http://argocd-dex-server:5556"
   ]
 
