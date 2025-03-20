@@ -1850,11 +1850,9 @@ server:
   imagePullSecrets: []
 
   # -- Additional command line arguments to pass to Argo CD server
-  extraArgs: [
-    '--dex-server-plaintext',
-    '--dex-server "http://argocd-dex-server:5556"',
-  ]
-
+   extraArgs:
+     - --dex-server-plaintext
+     - --dex-server=http://argocd-dex-server:5556
   # -- Environment variables to pass to Argo CD server
   env: []
 
