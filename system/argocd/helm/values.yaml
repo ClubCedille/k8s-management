@@ -1047,7 +1047,7 @@ dex:
     # -- Dex image repository
     repository: ghcr.io/dexidp/dex
     # -- Dex image tag
-    tag: v2.41.1
+    tag: ""
     # -- Dex imagePullPolicy
     # @default -- `""` (defaults to global.image.imagePullPolicy)
     imagePullPolicy: ""
@@ -1232,7 +1232,7 @@ dex:
   # -- Service port for HTTP access
   servicePortHttp: 5556
   # -- Service port name for HTTP access
-  servicePortHttpName: tcp
+  servicePortHttpName: http
   # -- Service port for gRPC access
   servicePortGrpc: 5557
   # -- Service port name for gRPC access
