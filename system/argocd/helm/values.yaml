@@ -1232,7 +1232,7 @@ dex:
   # -- Service port for HTTP access
   servicePortHttp: 5556
   # -- Service port name for HTTP access
-  servicePortHttpName: http
+  servicePortHttpName: tcp
   # -- Service port for gRPC access
   servicePortGrpc: 5557
   # -- Service port name for gRPC access
